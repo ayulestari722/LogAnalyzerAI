@@ -1,0 +1,62 @@
+# LogAnalyzerAI — Default Configuration
+# Override by passing --config <path> or setting environment variables.
+
+orchestrator:
+  timeout_per_agent: 30.0
+  max_concurrent_agents: 6
+  retry_failed_agents: false
+
+agents:
+  parser:
+    enabled: true
+    formats:
+      - json
+      - syslog
+      - apache
+      - nginx
+  anomaly:
+    enabled: true
+    z_score_threshold: 2.5
+    min_samples: 10
+    window_size: 100
+  pattern:
+    enabled: true
+    max_patterns: 100
+    min_frequency: 3
+  correlation:
+    enabled: true
+    time_window_seconds: 60
+    min_correlation: 0.7
+  alert:
+    enabled: true
+    critical_threshold: 0.9
+    high_threshold: 0.7
+    medium_threshold: 0.4
+  metrics:
+    enabled: true
+    percentiles: [50, 90, 95, 99]
+    bucket_size_seconds: 60
+  summary:
+    enabled: true
+    max_findings: 50
+    include_recommendations: true
+
+output:
+  format: markdown
+  include_raw_data: false
+  max_examples_per_finding: 5
+  sarif_version: "2.1.0"
+
+severity:
+  weights:
+    critical: 10
+    high: 7
+    medium: 4
+    low: 2
+    info: 1
+  score_threshold: 50
+
+logging:
+  level: INFO
+  format: rich
+  file: null

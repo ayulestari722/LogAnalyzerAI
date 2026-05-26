@@ -1,0 +1,50 @@
+2026-05-22 08:00:01 INFO  [main] Application starting up, version 0.1.0
+2026-05-22 08:00:02 INFO  [config] Loaded configuration from /etc/app/config.yaml
+2026-05-22 08:00:03 INFO  [db] Connecting to PostgreSQL at db.internal:5432
+2026-05-22 08:00:04 INFO  [db] Connection pool initialized (min=5, max=20)
+2026-05-22 08:00:05 INFO  [cache] Redis connection established at cache.internal:6379
+2026-05-22 08:00:06 INFO  [http] Starting HTTP server on 0.0.0.0:8080
+2026-05-22 08:00:07 INFO  [http] Health check endpoint ready at /health
+2026-05-22 08:01:12 INFO  [auth] User login: user_id=4821, ip=192.168.1.45
+2026-05-22 08:01:15 WARNING [rate_limit] Rate limit approaching for client_id=api-key-7291 (85/100 requests)
+2026-05-22 08:02:33 INFO  [worker] Processing job queue: 12 pending tasks
+2026-05-22 08:02:34 INFO  [worker] Task completed: task_id=job-8821, duration=1.23s
+2026-05-22 08:02:35 INFO  [worker] Task completed: task_id=job-8822, duration=0.87s
+2026-05-22 08:03:01 ERROR [db] Query timeout after 30s: SELECT * FROM analytics WHERE created_at > $1
+2026-05-22 08:03:01 ERROR [db] Connection pool exhausted, 3 queries waiting
+2026-05-22 08:03:05 WARNING [db] Slow query detected: 28.4s for report_generation
+2026-05-22 08:03:10 INFO  [db] Connection recovered, pool size back to normal
+2026-05-22 08:04:22 ERROR [auth] Authentication failed: invalid token for user_id=9921, ip=10.0.0.55
+2026-05-22 08:04:23 ERROR [auth] Authentication failed: invalid token for user_id=9921, ip=10.0.0.55
+2026-05-22 08:04:24 ERROR [auth] Authentication failed: invalid token for user_id=9921, ip=10.0.0.55
+2026-05-22 08:04:25 WARNING [security] Brute force detection: 3 failed attempts from ip=10.0.0.55
+2026-05-22 08:05:00 INFO  [scheduler] Cron job triggered: daily_report_generation
+2026-05-22 08:05:01 INFO  [worker] Starting batch: 847 records to process
+2026-05-22 08:05:45 INFO  [worker] Batch complete: 847/847 processed, 2 errors
+2026-05-22 08:05:45 WARNING [worker] Failed records: id=44821 (timeout), id=44903 (validation)
+2026-05-22 08:06:12 ERROR [http] Request failed: POST /api/v2/webhooks - 500 Internal Server Error
+2026-05-22 08:06:12 ERROR [http] Traceback: NoneType has no attribute 'encode' in webhook_handler.py:142
+2026-05-22 08:06:30 INFO  [metrics] Heartbeat: cpu=42%, mem=68%, disk=55%, connections=18/20
+2026-05-22 08:07:00 WARNING [metrics] Memory usage above 65% threshold (68%)
+2026-05-22 08:08:15 INFO  [cache] Cache hit ratio: 94.2% (last 5 minutes)
+2026-05-22 08:09:00 INFO  [http] Request stats: 2,847 total, avg_latency=45ms, p99=320ms
+2026-05-22 08:10:01 CRITICAL [db] Database connection lost: connection refused
+2026-05-22 08:10:02 CRITICAL [db] All retry attempts exhausted (5/5), entering degraded mode
+2026-05-22 08:10:03 ERROR [http] 23 requests failed due to database unavailability
+2026-05-22 08:10:30 INFO  [db] Reconnection successful after 29s downtime
+2026-05-22 08:10:31 INFO  [http] Service restored, draining error queue (23 items)
+2026-05-22 08:11:00 INFO  [metrics] Heartbeat: cpu=38%, mem=64%, disk=55%, connections=12/20
+2026-05-22 08:12:00 INFO  [scheduler] Next scheduled job: backup_rotation at 09:00:00
+2026-05-22 08:15:00 INFO  [http] Request stats: 3,102 total, avg_latency=42ms, p99=285ms
+2026-05-22 08:20:00 INFO  [metrics] Heartbeat: cpu=35%, mem=62%, disk=55%, connections=14/20
+2026-05-22 08:25:01 INFO  [auth] User login: user_id=5512, ip=192.168.1.102
+2026-05-22 08:30:00 INFO  [http] Request stats: 4,521 total, avg_latency=39ms, p99=270ms
+2026-05-22 08:35:00 INFO  [metrics] Heartbeat: cpu=41%, mem=63%, disk=55%, connections=15/20
+2026-05-22 08:40:12 WARNING [cache] Cache eviction spike: 234 keys evicted in 60s
+2026-05-22 08:45:00 INFO  [http] Request stats: 5,890 total, avg_latency=41ms, p99=290ms
+2026-05-22 08:50:00 INFO  [metrics] Heartbeat: cpu=44%, mem=65%, disk=56%, connections=16/20
+2026-05-22 08:55:00 INFO  [scheduler] Cron job triggered: metrics_aggregation
+2026-05-22 09:00:00 INFO  [scheduler] Cron job triggered: backup_rotation
+2026-05-22 09:00:05 INFO  [backup] Starting incremental backup: 2.3GB estimated
+2026-05-22 09:02:30 INFO  [backup] Backup complete: 2.1GB compressed, uploaded to s3://backups/
+2026-05-22 09:05:00 INFO  [http] Request stats: 7,234 total, avg_latency=38ms, p99=265ms

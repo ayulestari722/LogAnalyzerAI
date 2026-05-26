@@ -1,0 +1,20 @@
+{"timestamp":"2026-05-22T08:00:01Z","level":"info","service":"api-gateway","message":"Gateway started","port":8080,"version":"2.4.1"}
+{"timestamp":"2026-05-22T08:00:02Z","level":"info","service":"api-gateway","message":"Route table loaded","routes":47,"middleware":12}
+{"timestamp":"2026-05-22T08:01:00Z","level":"info","service":"auth-service","message":"Token validation request","user_id":"u-4821","latency_ms":12}
+{"timestamp":"2026-05-22T08:03:01Z","level":"error","service":"db-proxy","message":"Connection timeout","host":"db-primary.internal","timeout_ms":30000,"retries":3}
+{"timestamp":"2026-05-22T08:03:02Z","level":"error","service":"db-proxy","message":"Failover initiated","from":"db-primary.internal","to":"db-replica-1.internal"}
+{"timestamp":"2026-05-22T08:04:22Z","level":"warning","service":"auth-service","message":"Invalid credentials","ip":"10.0.0.55","attempts":1,"user_agent":"python-requests/2.31.0"}
+{"timestamp":"2026-05-22T08:04:25Z","level":"warning","service":"auth-service","message":"Rate limit triggered","ip":"10.0.0.55","attempts":3,"block_duration_s":300}
+{"timestamp":"2026-05-22T08:05:00Z","level":"info","service":"scheduler","message":"Job dispatched","job_id":"daily-report","queue":"high-priority","estimated_duration_s":45}
+{"timestamp":"2026-05-22T08:06:12Z","level":"error","service":"webhook-handler","message":"Unhandled exception","error":"NoneType has no attribute encode","stack_trace":"webhook_handler.py:142","request_id":"req-88421"}
+{"timestamp":"2026-05-22T08:10:01Z","level":"critical","service":"db-proxy","message":"All database connections lost","active_queries":23,"pool_size":0,"last_healthy":"2026-05-22T08:09:58Z"}
+{"timestamp":"2026-05-22T08:10:30Z","level":"info","service":"db-proxy","message":"Connection restored","downtime_seconds":29,"recovered_queries":18,"failed_queries":5}
+{"timestamp":"2026-05-22T08:15:00Z","level":"info","service":"metrics-collector","message":"System metrics","cpu_percent":35.2,"memory_percent":62.1,"disk_percent":55.4,"open_connections":14}
+{"timestamp":"2026-05-22T08:20:00Z","level":"info","service":"api-gateway","message":"Traffic summary","requests_total":4521,"avg_latency_ms":39,"p99_latency_ms":270,"error_rate":0.02}
+{"timestamp":"2026-05-22T08:30:00Z","level":"info","service":"api-gateway","message":"Traffic summary","requests_total":5890,"avg_latency_ms":41,"p99_latency_ms":290,"error_rate":0.01}
+{"timestamp":"2026-05-22T08:40:00Z","level":"warning","service":"waf","message":"Suspicious request blocked","ip":"10.0.0.88","pattern":"path_traversal","uri":"/api/v2/../../../etc/passwd","action":"block"}
+{"timestamp":"2026-05-22T08:40:01Z","level":"warning","service":"waf","message":"Suspicious request blocked","ip":"10.0.0.88","pattern":"sql_injection","uri":"/api/v2/admin OR 1=1--","action":"block"}
+{"timestamp":"2026-05-22T08:40:02Z","level":"warning","service":"waf","message":"IP blacklisted","ip":"10.0.0.88","reason":"multiple_attack_patterns","block_duration_s":3600}
+{"timestamp":"2026-05-22T08:45:00Z","level":"info","service":"cache","message":"Cache statistics","hit_ratio":0.942,"evictions":234,"total_keys":18421,"memory_mb":512}
+{"timestamp":"2026-05-22T09:00:00Z","level":"info","service":"scheduler","message":"Job dispatched","job_id":"backup-rotation","queue":"low-priority","estimated_duration_s":150}
+{"timestamp":"2026-05-22T09:02:30Z","level":"info","service":"backup","message":"Backup completed","size_gb":2.1,"duration_s":145,"destination":"s3://backups/daily/2026-05-22.tar.gz"}
