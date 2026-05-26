@@ -73,4 +73,3 @@ MIT
 
 ---
 
-Built with: Hermes Agent, MiMo + Claude series
